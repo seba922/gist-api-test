@@ -12,16 +12,4 @@ public class Helper {
     public static <T> T convertResponseBodyToClass(Response response, Class<T> tClass) {
         return response.getBody().as(tClass);
     }
-
-    public static <T> T convertJsonFromFileToClass(String fileName, Class<T> tClass) {
-        FileReader file = null;
-        Gson gson = new Gson();
-        try {
-            file = new FileReader("RestAssured/src/test/resources/json/" + fileName);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-
-        return gson.fromJson(new JsonReader(file), tClass);
-    }
 }
